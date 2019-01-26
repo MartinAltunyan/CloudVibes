@@ -36,7 +36,7 @@ router.post('/order', (req, res) => {
     }
 
 });
-//@route Post api/orders/all
+//@route GET api/orders/all
 //@desc Tests orders rout
 //@access Public
 
@@ -57,13 +57,13 @@ router.get('/all', (req, res) => {
 });
 
 
-//@route GET api/orders/:id
+//@route GET api/orders/order/:id
 //@desc Get post by id
 //@access Public
 
 
 
-router.get('/:id', (req, res) => {
+router.get('/order/:id', (req, res) => {
 
     Order.findById(req.params.id)
 
@@ -71,5 +71,56 @@ router.get('/:id', (req, res) => {
         .then(order => res.json(order))
         .catch(err => res.status(404).json({ noorder: 'No order found with that ID' }));
 });
+
+
+
+
+//@route Delete api/orders/:id
+//@desc Delete post by id
+//@access Public
+
+router.delete('/:id', (req, res) => {
+
+    Order.deleteOne({ _id: req.params.id })
+        .then(res.json({ success: true }))
+        .catch(err => res.status(404).json({ msg: 'Can not delete oreder' }))
+
+});
+
+//@route Post api/orders/order/:id
+//@desc Update by id 
+//@access Public
+
+router.post('/order/:id', (req, res) => {
+    const { errors, isValid } = validateOrdersInput(req.body);
+    // Check Validation
+    if (!isValid) {
+        // Return any errors with 400 status
+        return res.status(400).json(errors);
+    } else {
+        Order.findById(req.params.id, (err, order) => {
+
+            if (err) {
+                res.json(err)
+            } else {
+                order.name = req.body.name,
+                    order.phone = req.body.phone,
+                    order.time = req.body.time,
+                    order.date = req.body.date,
+                    order.person = req.body.person
+                order.save((err, data) => {
+                    if (err) {
+                        res.json(err);
+                    } else {
+                        res.json(data)
+                    }
+                });
+
+
+            }
+        })
+    }
+})
+
 
 module.exports = router;

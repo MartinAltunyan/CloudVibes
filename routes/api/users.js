@@ -3,7 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
+const mongoose = require('mongoose');
 const passport = require('passport');
+
 //Load User model
 const User = require('../../models/User');
 //Load input validation

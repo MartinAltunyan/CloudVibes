@@ -20,6 +20,11 @@ const OrderSchema = new Schema({
         type: Date,
         require: true,
         default: Date.now
+    },
+    person: {
+        type: Number,
+        require: true,
     }
+
 })
 module.exports = Order = mongoose.model('orders', OrderSchema);

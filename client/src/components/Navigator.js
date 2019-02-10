@@ -6,29 +6,29 @@ export default class Navigator extends Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-                    <div class="container">
-                        <Link class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" to="#"></Link>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                <nav className="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+                    <div className="container">
+                        <Link className="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" to="#"></Link>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarResponsive">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item px-lg-4">
-                                    <Link class="nav-link text-uppercase text-expanded" to='/'>HOME</Link>
-                                    <span class="sr-only">(current)</span>
+                        <div className="collapse navbar-collapse" id="navbarResponsive">
+                            <ul className="navbar-nav mx-auto">
+                                <li className="nav-item px-lg-4">
+                                    <Link className="nav-link text-uppercase text-expanded" to='/'>HOME</Link>
+                                    <span className="sr-only">(current)</span>
 
                                 </li>
-                                <li class="nav-item active px-lg-4">
-                                    <Link class="nav-link text-uppercase text-expanded" to="/menu">HOOKAH MENU</Link>
+                                <li className="nav-item active px-lg-4">
+                                    <Link className="nav-link text-uppercase text-expanded" to="/menu">HOOKAH MENU</Link>
 
                                 </li>
-                                <li class="nav-item px-lg-4">
+                                <li className="nav-item px-lg-4">
 
-                                    <Link class="nav-link text-uppercase text-expanded" to="/reservation">MAKE A RESERVATION</Link>
+                                    <Link className="nav-link text-uppercase text-expanded" to="/reservation">MAKE A RESERVATION</Link>
                                 </li>
-                                <li class="nav-item px-lg-4">
-                                    <Link class="nav-link text-uppercase text-expanded" to="/hours">HOURS</Link>
+                                <li className="nav-item px-lg-4">
+                                    <Link className="nav-link text-uppercase text-expanded" to="/hours">HOURS</Link>
                                 </li>
                             </ul>
                         </div>

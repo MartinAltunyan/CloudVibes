@@ -1,4 +1,10 @@
 import React, { Component } from 'react'
+import Pic2 from '../img/IMG_8562.JPG'
+
+import Pic3 from '../img/IMG_5113.jpg'
+import Pic4 from '../img/IMG_5131.jpg'
+
+
 
 export default class Menu extends Component {
     render() {
@@ -15,7 +21,7 @@ export default class Menu extends Component {
                                     </h2>
                                 </div>
                             </div>
-                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/IMG_8562.JPG" alt="" />
+                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src={Pic2} alt="" />
                             <div className="product-item-description d-flex mr-auto">
 
                                 <div className="bg-faded p-5 rounded" id="broken-broken">
@@ -65,7 +71,7 @@ export default class Menu extends Component {
                                     </h2>
                                 </div>
                             </div>
-                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/IMG_5113.jpg" alt="" />
+                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src={Pic3} alt="" />
                             <div className="product-item-description d-flex ml-auto">
                                 <div className="bg-faded p-5 rounded" id="broken-broken-broken">
 
@@ -116,7 +122,7 @@ export default class Menu extends Component {
                                     </h2>
                                 </div>
                             </div>
-                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/IMG_5131.jpg" alt="" />
+                            <img className="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src={Pic4} alt="" />
                             <div className="product-item-description d-flex mr-auto">
                                 <div className="bg-faded p-5 rounded" id="broken">
 

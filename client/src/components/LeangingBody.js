@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Pic1 from '../img/IMG_4727.jpg'
 
 export default class LeangingBody extends Component {

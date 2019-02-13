@@ -1,121 +1,186 @@
 import React, { Component } from 'react';
 import Pic5 from '../img/IMG_4719.jpg';
+import axios from 'axios'
+import classnames from 'classnames';
+import '../css/admin.css'
+
 
 
 
 
 
 class Reservation extends Component {
+constructor(props) {
+        super(props)
+        this.state = {
+            name:'',
+					phone: '',
+					date:'',
+					time:'',
+					person: '',
+					errors: {}
+            
+        }
 
-
+    }
 
 
 	onSubmit(e) {
 		e.preventDefault()
-		console.log(e.target)
-	}
+		const order = {
+			name: this.state.name,
+			phone: this.state.phone,
+			time: this.state.time,
+			date: this.state.date,
+			person: this.state.person,
+        
+		}
 
+		axios.post('api/orders/order', order)
+					
+			.then(res => this.props.history.push('/thankyou'))
+			.catch(err => this.setState({ errors: err.response.data }))
+    }
+
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value })
+		}
+		
 
 	render() {
+
+const {errors}= this.state
+	
+		
 		return (
 			<div>
 
-
-
-
-				<section class="page-section clearfix">
-					<div class="container">
-						<div class="intro">
-							<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src={Pic5} alt="" />
-							<div class="intro-text left-0 text-center bg-faded p-5 rounded">
-								<h2 class="section-heading mb-4">
-									<span class="section-heading-upper">TABLE TYPE</span>
+				<section className="page-section clearfix">
+					<div className="container">
+						<div className="intro">
+							<img className="intro-img img-fluid mb-3 mb-lg-0 rounded" src={Pic5} alt="" />
+							<div className="intro-text left-0 text-center bg-faded p-5 rounded">
+								<h2 className="section-heading mb-4">
+									<span className="section-heading-upper">TABLE TYPE</span>
 
 								</h2>
 
-								<div id="booking" class="section">
+								<div id="booking" className="section">
 
-									<div class="section-center">
-										<div class="container">
-											<div class="row">
-												<div class="booking-form">
+									<div className="section-center">
+										<div className="container">
+											<div className="row">
+												<div className="booking-form">
+									
+													<form noValidate onSubmit={this.onSubmit.bind(this)}>
 
-													<form>
 
-
-														<div class="form-group">
-
-															<div class="form-checkbox">
-
-																<label for="regular">
-																	<input type="radio" id="regular" name="REGULAR" />
-																	<span>REGULAR</span>
-																</label>
-																<label for="FIRE PIT">
-																	<input type="radio" id="FIRE PIT" name="FIREPIT" />
-																	<span>FIREPIT</span>
-																</label>
-															</div>
+														<div className="form-group">
 														</div>
-														<div class="row">
-															<div class="col-md-6">
-																<div class="form-group">
-																	<span class="form-label">Name</span>
-																	<input class="form-control" type="text" placeholder="Bob Lee" />
+														<div className="row">
+															<div className="col-md-6">
+																<div className="form-group">
+																	<span className="form-label">Name</span>
+								
+																	<input
+																		className={classnames("form-control", {
+																			'is-invalid':errors.name
+																		})}
+																		type="text"
+																		placeholder="Bob Lee" name='name'
+																		value={this.state.name}
+																		onChange={this.onChange.bind(this)} />
 
 																</div>
+																	{errors.name && (
+																	<p className='errors-p'>{errors.name}</p>
+                  )}
+																
 															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<span class="form-label">Phone</span>
-																	<input class="form-control" type="text" placeholder="(000) 000-0000" />
+															
+															<div className="col-md-6">
+																<div className="form-group">
+																	<span className="form-label">Phone</span>
+																	<input
+																			className={classnames("form-control", {
+																			'is-invalid':errors.phone
+																		})}
+																		type="text" name='phone'
+																		value={this.state.phone}
+																		placeholder="(000) 000-0000"
+																		onChange={this.onChange.bind(this)} />
 
 																</div>
+																							{errors.name && (
+																	<p className='errors-p'>{errors.phone}</p>
+                  )}
 															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<span class="form-label">Date</span>
-																	<input class="form-control" type="date" required />
+															<div className="col-md-6">
+																<div className="form-group">
+																	<span className="form-label">Date</span>
+																	<input
+																			className={classnames("form-control", {
+																			'is-invalid':errors.date
+																		})}
+																		type="date" name='date'
+																		value={this.state.date}
+																		onChange={this.onChange.bind(this)} />
 
 																</div>
+																							{errors.date && (
+																	<p className='errors-p'>{errors.date}</p>
+                  )}
 															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<span class="form-label">Time</span>
-																	<input class="form-control" type="time" required />
+															<div className="col-md-6">
+																<div className="form-group">
+																	<span className="form-label">Time</span>
+																	<input
+																		className={classnames("form-control", {
+																			'is-invalid':errors.time
+																		})}
+																		type="time" name='time'
+																		value={this.state.time}
+																		onChange={this.onChange.bind(this)} />
 
 																</div>
+																							{errors.time && (
+																	<p className='errors-p'>{errors.time}</p>
+                  )}
 															</div>
-															<div class="col-md-3">
-																<div class="form-group">
-																	<span class="form-label">Party N </span>
-
-																	<select class="form-control">
-
-																		<option>1</option>
-																		<option>2</option>
-																		<option>3</option>
-																		<option>4</option>
-																		<option>5</option>
-																		<option>6</option>
-																		<option>7</option>
-																		<option>8</option>
-																		<option>9</option>
-																		<option>10</option>
-																		<option>11</option>
-																		<option>12</option>
-																		<option>13</option>
-																		<option>14</option>
-																		<option>15</option>
-
-																	</select>
+															<div className="col-md-6">
+																<div className="form-group">
+																	
+																	
+																	 <span className="form-label"> Guest Number</span>
+                              <select 	className={classnames("form-control form-control-lg'", {
+																			'is-invalid':errors.person
+																		})} name='person'  value={this.state.person} onChange={this.onChange.bind(this)}>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+									        </select>
+										
 																</div>
+																{errors.person && (
+																	<p className='errors-p'>{errors.person}</p>
+                  )}
+						
 															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-
-																	<input class="btn btn-primary" type="submit" value="Submit" />
-
+															<div className="col-md-6">
+																<div className="form-group">
+																	<input className="btn btn-primary" type="submit" value="Submit" />
 																</div>
 															</div>
 														</div>
@@ -138,24 +203,27 @@ class Reservation extends Component {
 					</div>
 				</section>
 
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
-              <span class="section-heading-lower">To You</span>
+  <section className="page-section cta">
+    <div className="container">
+      <div className="row">
+        <div className="col-xl-9 mx-auto">
+          <div className="cta-inner text-center rounded">
+            <h2 className="section-heading mb-4">
+              <span className="section-heading-upper">Our Promise</span>
+              <span className="section-heading-lower">To You</span>
             </h2>
-            <p class="mb-0">We are dedicated to providing our customers with a fantastic customer service and a welcoming atmosphere!
+            <p className="mb-0">We are dedicated to providing our customers with a fantastic customer service and a welcoming atmosphere!
               
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+					</div>
+				
+				</section>
+				 
 			</div>
+			
 		)
 	}
 }

@@ -17,13 +17,14 @@ const OrderSchema = new Schema({
         default: Date.now
     },
     time: {
-        type: Date,
+        type: String,
         require: true,
         default: Date.now
     },
     person: {
         type: Number,
         require: true,
+        default: 1
     }
 
 })

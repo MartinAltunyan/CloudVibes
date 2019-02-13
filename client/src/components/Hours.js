@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 export default function Hours() {
     return (
@@ -55,40 +55,41 @@ export default function Hours() {
 
 
                                     </em>
+
                                 </p>
-                                <p className="mb-3">
+                                <p className="address mb-5">
                                     <em>CONTACT US</em>
 
+                                </p>
 
 
+                                <section className="contact-section bg-black">
+                                    <div className="container">
 
-                                    <section className="contact-section bg-black">
-                                        <div className="container">
 
+                                        <div className="social d-flex justify-content-center">
 
-                                            <div className="social d-flex justify-content-center">
+                                            <a target='_blanck' href="tel:(231)282-8348" className="mx-2">
+                                                <i className="fa fa-phone mb-2" />
+                                            </a>
+                                            <a target='_blanck' href="mailto:cloudvibeshookah@gmail.com" className="mx-2">
+                                                <i className="fa fa-envelope text-primary mb-2" /></a>
 
-                                                <a target='_blanck' href="tel:(231)282-8348" className="mx-2">
-                                                    <i className="fa fa-phone mb-2" />
-                                                </a>
-                                                <a target='_blanck' href="mailto:cloudvibeshookah@gmail.com" className="mx-2">
-                                                    <i className="fa fa-envelope text-primary mb-2" /></a>
-
-                                                <a target='_blanck' href="https://www.instagram.com/explore/locations/670127470027219/cloud-vibes-hookah-lounge?hl=en" className="mx-2" >
-                                                    <i className="fa fa-instagram mb-2" />
-                                                </a >
-                                                <a target='_blanck' href="https://www.yelp.com/biz/cloud-vibes-hookah-lounge-los-angeles-2" className="mx-2">
-                                                    <i className="fa fa-yelp mb-2" />
-                                                </a>
-
-                                            </div>
+                                            <a target='_blanck' href="https://www.instagram.com/explore/locations/670127470027219/cloud-vibes-hookah-lounge?hl=en" className="mx-2" >
+                                                <i className="fa fa-instagram mb-2" />
+                                            </a >
+                                            <a target='_blanck' href="https://www.yelp.com/biz/cloud-vibes-hookah-lounge-los-angeles-2" className="mx-2">
+                                                <i className="fa fa-yelp mb-2" />
+                                            </a>
 
                                         </div>
-                                    </section>
+
+                                    </div>
+                                </section>
 
 
 
-                                </p>
+
                             </div>
                         </div>
                     </div>

@@ -11,11 +11,11 @@ module.exports = function validateOrderInput(data) {
     data.person = !isEmpty(data.person) ? data.person : '';
 
     if (Validator.isEmpty(data.name)) {
-        errors.name = 'Name field is required';
+        errors.name = 'Name is required';
     }
 
     if (Validator.isEmpty(data.phone)) {
-        errors.phone = 'Phone number field is required';
+        errors.phone = 'Phone number is required';
     }
 
     if (Validator.isEmpty(data.date)) {
@@ -26,7 +26,7 @@ module.exports = function validateOrderInput(data) {
         errors.time = 'Time is required';
     }
     if (Validator.isEmpty(data.person)) {
-        errors.person = 'How many participants';
+        errors.person = 'How many participants ?';
     }
 
     return {

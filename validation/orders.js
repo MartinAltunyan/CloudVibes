@@ -22,12 +22,22 @@ module.exports = function validateOrderInput(data) {
         errors.date = 'Date is required';
     }
 
+    //Checking if it is past new Date()
+    var date1 = new Date();
+    date1.setDate(date1.getDate() - 1);
+
+
+    if (Validator.isAfter(date1.toString(), data.date)) {
+
+        errors.date = 'Date is required';
+    }
+
+
     if (Validator.isEmpty(data.time)) {
+
         errors.time = 'Time is required';
     }
-    if (Validator.isEmpty(data.person)) {
-        errors.person = 'How many participants ?';
-    }
+
 
     return {
         errors,

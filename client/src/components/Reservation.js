@@ -17,7 +17,7 @@ constructor(props) {
 					phone: '',
 					date:'',
 					time:'',
-					person: '',
+					person: 1,
 					errors: {}
             
         }
@@ -154,7 +154,7 @@ const {errors}= this.state
 																	 <span className="form-label"> Guest Number</span>
                               <select 	className={classnames("form-control form-control-lg'", {
 																			'is-invalid':errors.person
-																		})} name='person'  value={this.state.person} onChange={this.onChange.bind(this)}>
+															})} name='person' value={this.state.person} onChange={this.onChange.bind(this)}>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
